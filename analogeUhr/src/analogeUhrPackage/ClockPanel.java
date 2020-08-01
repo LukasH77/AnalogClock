@@ -57,8 +57,13 @@ public class ClockPanel extends JPanel implements ActionListener {
 	void drawExtras(Graphics g2d) {  //draws the date, a digital clock and the displayed time-zone into the clock
 		//date
 		g2d.drawRect(centralPoint + (int) (long) Math.round(Math.sin(((2 * Math.PI) / 60) * 22.5) * 140) - 2, centralPoint + (int) (long) Math.round(-Math.cos(((2 * Math.PI) / 60) * 22.5) * 140) - 13, 17, 17);
-		g2d.drawString(ZonedDateTime.now(setTimeZone(zoneI)).getDayOfMonth() + "",
-				centralPoint + (int) (long) Math.round(Math.sin(((2 * Math.PI) / 60) * 22.5) * 140), centralPoint + (int) (long) Math.round(-Math.cos(((2 * Math.PI) / 60) * 22.5) * 140));
+		if(ZonedDateTime.now(setTimeZone(zoneI)).getDayOfMonth() < 10) {
+			g2d.drawString(ZonedDateTime.now(setTimeZone(zoneI)).getDayOfMonth() + "",
+					centralPoint + (int) (long) Math.round(Math.sin(((2 * Math.PI) / 60) * 22.5) * 145), centralPoint + (int) (long) Math.round(-Math.cos(((2 * Math.PI) / 60) * 22.5) * 141));
+		} else {
+			g2d.drawString(ZonedDateTime.now(setTimeZone(zoneI)).getDayOfMonth() + "",
+					centralPoint + (int) (long) Math.round(Math.sin(((2 * Math.PI) / 60) * 22.5) * 140), centralPoint + (int) (long) Math.round(-Math.cos(((2 * Math.PI) / 60) * 22.5) * 141));
+		}
 		//digital clock
 		String sec = Integer.toString(ZonedDateTime.now(setTimeZone(zoneI)).getSecond());
 		String min = Integer.toString(ZonedDateTime.now(setTimeZone(zoneI)).getMinute());
