@@ -40,7 +40,8 @@ public class Assembly implements ActionListener {
 	void configureButton(JButton name, int x, int y, int width, int height, ActionListener a, boolean focusable) {  //allows easy configuration of created buttons
 		name.setBounds(x, y, width, height);
 		name.addActionListener(a);
-		name.setFocusable(focusable);	
+		name.setFocusable(focusable);
+		println("Testing Git")
 	}
 
 	@Override
